@@ -189,6 +189,8 @@ func buildIntermediate(nl []*Node, t *MerkleTree) (*Node, error) {
 		if i+1 == len(nl) {
 			right = i
 		}
+		fmt.Printf("left: %x \n", nl[left].Hash)
+		fmt.Printf("right: %x \n", nl[right].Hash)
 		chash := append(nl[left].Hash, nl[right].Hash...)
 		if _, err := h.Write(chash); err != nil {
 			return nil, err
